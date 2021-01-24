@@ -6,20 +6,9 @@ const appDiv: HTMLElement = document.getElementById("app");
 appDiv.innerHTML = `<h1>TypeScript Starter action</h1> <br> https://youtu.be/NjN00cM18Z4`;
 
 
-// declare Variables
-// var number = 1;
-// let count =2;
-// console.log("hallo", count + number);
-
-// call Function
-function doSomething(){
-  for(var i =0;i<5;i++){
-    console.log(i);
-  }
-console.log("finally: " +i);
-}
-//doSomething();
-
+// 1. declare Variables
+// var number = 1; var ist funktionsübergreifend gültig
+// let count =2; let ist besser da definiert und nur innerhalb der funtkion verfügbar
 let a: number;
 a=1
 let b: boolean;
@@ -36,16 +25,27 @@ let endswithCalternative = (message as string).endsWith("c");
 //console.log(endswithC);
 //console.log(endswithCalternative);
 
+// call Function mit übergreifender var variabel (nicht gut, var ist quasi global)
+function doSomething(){
+  for(var i =0;i<5;i++){
+    console.log(i);
+  }
+console.log("finally: " +i); //var variable sollte hier eigentlich nicht mehr laufen in guter Programmiersprache
+}
+//doSomething();
+
 //normal function
 let log = function(messagea: string){
   console.log(messagea);
 }
 log("abc")
+
 //arrow function > das selbe wie normal function
-let doLog = (messageb: string) => {
-  console.log(messageb);
+let arrowfunc =(inhalt: string) => {
+  //hier dring steht die Funktion
+  console.log(inhalt);
 }
-doLog("huhu")
+arrowfunc("hallo arrow")
 
 //interface
 // Interface aufsetzen:
@@ -75,7 +75,7 @@ class PointClass{
     //...
   }
 }
-// lange variante: let pointclass: PointClass = new PointClass(); > new weil nocht Speicher zugewiesen werden muss
+// lange variante, kurze Zeit steht untendrunter: let pointclass: PointClass = new PointClass(); > new weil noch Speicher zugewiesen werden muss / neue Instanz erzeugt werden muss
 let pointclass=new PointClass();
 pointclass.x = 1
 pointclass.y = 2
